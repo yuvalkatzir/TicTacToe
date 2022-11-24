@@ -4,152 +4,228 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_constraintWidth_percent="90"
+    android:alwaysDrawnWithCache="false"
+    android:background="@drawable/yofi"
+    android:backgroundTint="@color/white"
+    android:backgroundTintMode="multiply"
+    android:scaleType="fitXY"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/grid_layout"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center|center_vertical"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/grid_imgView"
-        app:layout_constraintEnd_toEndOf="@+id/grid_imgView"
-        app:layout_constraintStart_toStartOf="@+id/grid_imgView"
-        app:layout_constraintTop_toTopOf="@+id/grid_imgView">
+    <TextView
+        android:id="@+id/mainActivityTitle_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="monospace"
+        android:lineSpacingExtra="12sp"
+        android:text="Tic Tac Toe"
+        android:textAlignment="center"
+        android:textColor="#4A148C"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp">
-
-            <ImageView
-                android:id="@+id/imageView0"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="playerTurn"
-                android:padding="20sp"
-                android:tag="0" />
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="playerTurn"
-                android:padding="20sp"
-                android:tag="1" />
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="playerTurn"
-                android:padding="20sp"
-                android:tag="2" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp">
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:contentDescription="@string/app_name"
-                android:onClick="playerTurn"
-                android:padding="20sp"
-                android:tag="3" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="playerTurn"
-                android:padding="20sp"
-                android:tag="4" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="playerTurn"
-                android:padding="20sp"
-                android:tag="5" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp">
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="playerTurn"
-                android:padding="20sp"
-                android:tag="6" />
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="playerTurn"
-                android:padding="20sp"
-                android:tag="7"
-                tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="playerTurn"
-                android:padding="20sp"
-                android:tag="8" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/grid_imgView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
+    <Button
+        android:id="@+id/mainActivity_startBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/purple_700"
+        android:fontFamily="monospace"
+        android:text="press to play"
+        android:onClick="playAgain"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/grid" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/gridcolorful"
+        android:backgroundTint="@color/design_default_color_primary"
+        android:backgroundTintMode="screen"
+        android:hapticFeedbackEnabled="false"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/mainActivity_startBtn"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainActivityTitle_text">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:onClick="playerTurn"
+                android:padding="10dp"
+                android:scaleType="fitXY"
+                android:tag="0"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:onClick="playerTurn"
+                android:padding="10dp"
+                android:scaleType="fitXY"
+                android:tag="1"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/ImageButton3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:onClick="playerTurn"
+                android:scaleType="fitXY"
+                android:tag="2"
+                tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck"
+                tools:srcCompat="@tools:sample/avatars" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:onClick="playerTurn"
+                android:scaleType="fitXY"
+                android:tag="3"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:cropToPadding="false"
+                android:onClick="playerTurn"
+                android:scaleType="fitXY"
+                android:tag="4"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/imageButton6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:onClick="playerTurn"
+                android:scaleType="fitXY"
+                android:tag="5"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:srcCompat="@tools:sample/avatars" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton7"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:onClick="playerTurn"
+                android:padding="10dp"
+                android:scaleType="fitXY"
+                android:tag="6"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/imageButton8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:onClick="playerTurn"
+                android:scaleType="fitXY"
+                android:tag="7"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/imageButton9"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:onClick="playerTurn"
+                android:scaleType="fitXY"
+                android:tag="8"
+                tools:srcCompat="@tools:sample/avatars" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/playertxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="monospace"
+        android:lineSpacingExtra="8sp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainActivityTitle_text"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
