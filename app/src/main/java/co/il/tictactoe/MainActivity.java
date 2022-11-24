@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         turn =(turn+1)%2;
         if(btnClicked.size()==9){
             playerText.setText("TIE");
-            play.setText("PRESS TO PLAY");
+            play.setText("PLAY AGAIN");
         }
         won=winner();
         if (won) {
