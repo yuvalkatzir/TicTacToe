@@ -99,5 +99,6 @@ public class MainActivity extends AppCompatActivity {
         setBoard();
         Button play = (Button) findViewById(R.id.mainActivity_startBtn);
         play.setText("PRESS TO PLAY");
+        playerText.setText("");
     }
 }
