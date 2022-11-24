@@ -4,22 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_constraintWidth_percent="90"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/grid_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center|center_vertical"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:orientation="vertical"
-
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="80dp">
+        app:layout_constraintBottom_toBottomOf="@+id/grid_imgView"
+        app:layout_constraintEnd_toEndOf="@+id/grid_imgView"
+        app:layout_constraintStart_toStartOf="@+id/grid_imgView"
+        app:layout_constraintTop_toTopOf="@+id/grid_imgView">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
             <ImageView
                 android:id="@+id/imageView0"
@@ -54,7 +62,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -90,7 +101,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
             <ImageView
                 android:id="@+id/imageView6"
@@ -127,10 +141,15 @@
 
     <ImageView
         android:id="@+id/grid_imgView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/grid"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="80dp" />
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/grid" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
