@@ -18,7 +18,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:fontFamily="monospace"
         android:lineSpacingExtra="12sp"
         android:text="Tic Tac Toe"
@@ -26,8 +25,8 @@
         android:textColor="#4A148C"
         android:textSize="60sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,8 +40,8 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/purple_700"
         android:fontFamily="monospace"
-        android:text="press to play"
         android:onClick="playAgain"
+        android:text="PRESS TO PLAY"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="34sp"
@@ -50,10 +49,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/boardLinearLayout" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/boardLinearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -69,7 +68,7 @@
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainActivityTitle_text">
+        app:layout_constraintTop_toBottomOf="@+id/playertxt">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -207,14 +206,36 @@
         </LinearLayout>
     </LinearLayout>
 
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/design_default_color_primary"
+        android:backgroundTintMode="screen"
+        android:hapticFeedbackEnabled="false"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/boardLinearLayout"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/boardLinearLayout"
+        app:layout_constraintStart_toStartOf="@+id/boardLinearLayout"
+        app:layout_constraintTop_toTopOf="@+id/boardLinearLayout">
+
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:visibility="visible"
+            app:srcCompat="@drawable/ticatactoeline" />
+    </FrameLayout>
+
     <TextView
         android:id="@+id/playertxt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="monospace"
         android:lineSpacingExtra="8sp"
         android:text=""
@@ -222,10 +243,11 @@
         android:textColor="@color/purple_700"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/boardLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainActivityTitle_text"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
