@@ -18,6 +18,20 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private int gridPosX;
+    private int gridPosY;
+    private static int cellSize;
+    private ImageView line;
+    public LinearLayout grid;
+    private ViewGroup.MarginLayoutParams lineParams;
+    public int[] board;
+    public int turn=1; //x=1 o=0
+    public Boolean won=false;
+    public TextView playerText;
+    public Button play;
+    public ImageButton btn;
+    public List<ImageButton> btnClicked = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,16 +50,6 @@ public class MainActivity extends AppCompatActivity {
         gridPosY = grid.getTop();
     }
 
-    private int gridPosX;
-    private int gridPosY;
-    private static int cellSize;
-    private ImageView line;
-    private Bitmap bitmap;
-    public LinearLayout grid;
-    private ViewGroup.MarginLayoutParams lineParams;
-
-    //board current state
-    public int[] board;
     public void setBoard() {
         this.board = new int[]{
                 2, 2, 2,
@@ -70,13 +74,6 @@ public class MainActivity extends AppCompatActivity {
         won=false;
         turn=1;
     }
-
-    public int turn=1; //x=1 o=0
-    public Boolean won=false;
-    public TextView playerText;
-    public Button play;
-    public ImageButton btn;
-    public List<ImageButton> btnClicked = new ArrayList<>();
 
     public void playerTurn(View view) {
         btn = findViewById(view.getId());
@@ -108,9 +105,8 @@ public class MainActivity extends AppCompatActivity {
             playerText.setText("PLAYER " +symbole+ " WON");
             play.setText(R.string.replay);
         }
-
-
     }
+
     //winning options
     public boolean winner() {
         int row = 0, col = 0,angle = 0;
@@ -167,11 +163,8 @@ public class MainActivity extends AppCompatActivity {
         line.setRotation(angle);
         switch (angle){
             case 315: // line orientation: \
-                //lineParams.leftMargin += imagePartialWidth + cellSize * colStart;
-                //line.setScaleType(ImageView.ScaleType.FIT_START);
                 break;
             case 90: // line orientation: -
-                //lineParams.topMargin +=(- cellSize) * 2 + cellSize * 2 * rowStart;
                 line.setScaleType(ImageView.ScaleType.FIT_START);
                 lineParams.topMargin += imagePartialWidth / 3.5;
                 lineParams.bottomMargin -= imagePartialWidth / 3.5;
@@ -179,12 +172,10 @@ public class MainActivity extends AppCompatActivity {
                 lineParams.bottomMargin -= cellSize * rowStart;
                 break;
             case 225: // line orientation: /
-                //lineParams.leftMargin += (- imagePartialWidth) + cellSize * colStart;
                 break;
             default: // line orientation: |
                 lineParams.leftMargin += - cellSize * 2 + cellSize * 2 * colStart;
         }
-
 
         line.requestLayout();
     }
