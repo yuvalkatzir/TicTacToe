@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TicTacToe</string>
+    <string name="title">Tic Tac Toe</string>
+    <string name="play">PRESS TO PLAY</string>
+    <string name="replay">PLAY AGAIN</string>
+    <string name="tie">TIE</string>
 </resources>
