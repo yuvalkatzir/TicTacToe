@@ -183,7 +183,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 225: // line orientation: /
                 break;
-            default: // line orientation: |                lineParams.leftMargin += - cellSize * 2 + cellSize * 2 * colStart;
+            default: // line orientation: |
+                lineParams.leftMargin += - cellSize * 2 + cellSize * 2 * colStart;
         }
 
         line.requestLayout();
