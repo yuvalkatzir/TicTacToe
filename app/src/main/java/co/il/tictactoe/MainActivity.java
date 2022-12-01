@@ -3,6 +3,7 @@ package co.il.tictactoe;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,15 +23,16 @@ public class MainActivity extends AppCompatActivity {
     private int gridPosY;
     private static int cellSize;
     private ImageView line;
-    public LinearLayout grid;
+    private LinearLayout grid;
     private ViewGroup.MarginLayoutParams lineParams;
-    public int[] board;
-    public int turn=1; //x=1 o=0
-    public Boolean won=false;
-    public TextView playerText;
-    public Button play;
-    public ImageButton btn;
-    public List<ImageButton> btnClicked = new ArrayList<>();
+    private int[] board;
+    private int turn=1; //x=1 o=0
+    private Boolean won=false;
+    private TextView playerText;
+    private Button play;
+    private ImageButton btn;
+    private List<ImageButton> btnClicked = new ArrayList<>();
+    private MediaPlayer sfx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         gridPosY = grid.getTop();
     }
 
-    public void setBoard() {
+    private void setBoard() {
         this.board = new int[]{
                 2, 2, 2,
                 2, 2, 2,
@@ -87,28 +89,36 @@ public class MainActivity extends AppCompatActivity {
             symbole="X";
             btn.setImageResource(R.drawable.metalx);
             playerText.setText("player O turn");
+            sfx = MediaPlayer.create(MainActivity.this, R.raw.buttonx);
+            sfx.start();
         }
         else{
             symbole="O";
             btn.setImageResource(R.drawable.metalo);
             playerText.setText("player X turn");
+            sfx = MediaPlayer.create(MainActivity.this, R.raw.buttono);
+            sfx.start();
         }
         board[tag] = turn;
         turn =(turn+1)%2;
         if(btnClicked.size()==9){
             playerText.setText(R.string.tie);
             play.setText(R.string.replay);
+            sfx = MediaPlayer.create(MainActivity.this, R.raw.tie);
+            sfx.start();
         }
         won=winner();
         if (won) {
             line.setVisibility(View.VISIBLE);
             playerText.setText("PLAYER " +symbole+ " WON");
             play.setText(R.string.replay);
+            sfx = MediaPlayer.create(MainActivity.this, R.raw.playerwon);
+            sfx.start();
         }
     }
 
     //winning options
-    public boolean winner() {
+    private boolean winner() {
         int row = 0, col = 0,angle = 0;
         if (board[0] == board[1] && board[1] == board[2] && board[2] != 2) {
             col = 1;
@@ -173,8 +183,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 225: // line orientation: /
                 break;
-            default: // line orientation: |
-                lineParams.leftMargin += - cellSize * 2 + cellSize * 2 * colStart;
+            default: // line orientation: |                lineParams.leftMargin += - cellSize * 2 + cellSize * 2 * colStart;
         }
 
         line.requestLayout();
